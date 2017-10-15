@@ -18,10 +18,10 @@ public class PortfolioTester {
 	}
 	
 	public void setUp() {
-		//Create a portfolio object which is to be tested
+		//create a portfolio object which is to be tested
 		portfolio = new Portfolio();
 		
-		//Create the mock object of stock service
+		//create the mock object of stock service
 		stockService = mock(StockService.class);
 		
 		//set the stockService to the portfolio
@@ -29,10 +29,10 @@ public class PortfolioTester {
 	}
 	
 	public boolean testMarketValue() {
-		//Creates a list of stocks to be added to the portfolio
+		//creates a list of stocks to be added to the portfolio
 		List<Stock> stocks = new ArrayList<Stock>();
-		Stock googleStock = new Stock("1","Google", 10);
-		Stock microsoftStock = new Stock("2","Microsoft",100);
+		Stock googleStock = new Stock("1", "Google", 10);
+		Stock microsoftStock = new Stock("2", "Microsoft", 100);
 		
 		stocks.add(googleStock);
 		stocks.add(microsoftStock);
@@ -43,6 +43,8 @@ public class PortfolioTester {
 		//mock the behavior of stock service to return the value of various stocks
 		when(stockService.getPrice(googleStock)).thenReturn(50.00);
 		when(stockService.getPrice(microsoftStock)).thenReturn(1000.00);
+		
+		//marketValue = 50.0 * 10 + 1000.0 * 100 = 100500.0
 		double marketValue = portfolio.getMarketValue();
 		return marketValue == 100500.0;
 	}
