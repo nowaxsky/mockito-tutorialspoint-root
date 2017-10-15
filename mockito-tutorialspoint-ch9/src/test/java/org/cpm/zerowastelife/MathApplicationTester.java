@@ -1,6 +1,8 @@
 package org.cpm.zerowastelife;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.when;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,6 +20,7 @@ public class MathApplicationTester {
 	@Mock
 	CalculatorService calculatorService;
 	
+	//NOT A GOOD WAY
 	@Test(expected = RuntimeException.class)
 	public void testAdd() {
 		
@@ -28,4 +31,21 @@ public class MathApplicationTester {
 		Assert.assertEquals(mathApplication.add(10.0, 20.0),30.0,0);
 		
 	}
+	
+	//GOOD WAY
+	@Test
+	public void testSubtract() throws Exception {
+		
+		RuntimeException expected = new RuntimeException("subtract operation not implemented");
+		when(calculatorService.subtract(20.0, 10.0)).thenThrow(expected);
+
+		try {
+			Assert.assertEquals(mathApplication.subtract(20.0, 10.0),10.0,0);
+			assertThat("fail", false);
+		} catch (Exception e) {
+			assertThat("success", true);
+		}
+		
+	}
+	
 }
