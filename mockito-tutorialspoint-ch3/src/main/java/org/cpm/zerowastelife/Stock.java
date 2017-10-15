@@ -7,6 +7,7 @@ public class Stock {
 	private int quantity;
 	
 	public Stock(String stockId, String name, int quantity){
+		super();
 		this.stockId = stockId;
 		this.name = name;
 		this.quantity = quantity;
@@ -19,12 +20,21 @@ public class Stock {
 	public void setStockId(String stockId) {
 		this.stockId = stockId;
 	}
-	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public int getQuantity() {
 		return quantity;
 	}
-	
-	public String getTicker() {
-		return name;
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
+	
 }

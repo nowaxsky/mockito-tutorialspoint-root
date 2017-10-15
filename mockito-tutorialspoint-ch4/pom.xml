@@ -8,9 +8,9 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <groupId>org.cpm.zerowastelife</groupId>
-  <artifactId>mockito-tutorialspoint-ch3</artifactId>
+  <artifactId>mockito-tutorialspoint-ch4</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>mockito-tutorialspoint-ch3</name>
+  <name>mockito-tutorialspoint-ch4</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
