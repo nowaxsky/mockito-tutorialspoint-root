@@ -20,7 +20,8 @@ public class MathApplication {
 		return calculatorService.multiply(input1, input2);
 	}
 	
-	public double divide(double input1, double input2) {
+	public double divide(double input1, double input2) throws MyException {
+		//if(input2 == 0) throw new MyException(666, "test");
 		return calculatorService.divide(input1, input2);
 	}
 }
