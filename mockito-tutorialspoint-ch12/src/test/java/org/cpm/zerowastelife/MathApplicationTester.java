@@ -9,7 +9,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.stubbing.Answer;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MathApplicationTester {
@@ -25,19 +27,27 @@ public class MathApplicationTester {
 	}
 	
 	@Test
-	public void testAddAndSubtract() {
+	public void testAdd() {
 		
-		when(calculatorService.add(20.0,10.0)).thenReturn(30.0);		
-		when(calculatorService.subtract(20.0,10.0)).thenReturn(10.0);
+		when(calculatorService.add(20.0,10.0)).thenAnswer(new Answer() {
+
+			@Override
+			public Object answer(InvocationOnMock invocation) throws Throwable {
+				
+				//get the arguments passed to mock
+				Object[] args = invocation.getArguments();
+				
+				//get the mock
+				Object mock = invocation.getMock();
+				
+				//return the result
+				return 30.0;			
+			}		
+		});
 		
-		Assert.assertEquals(mathApplication.add(20.0, 10.0),30.0,0);
-		Assert.assertEquals(mathApplication.subtract(20.0, 10.0),10.0,0);
+		Assert.assertEquals(mathApplication.add(20.0, 10.0), 30.0, 0);
 		
-		InOrder inOrder = Mockito.inOrder(calculatorService);
-		
-		//following will make sure that add is first called then subtract is called.
-		inOrder.verify(calculatorService).subtract(20.0, 10.0);
-		inOrder.verify(calculatorService).add(20.0, 10.0);
+
 	}
 	
 }
