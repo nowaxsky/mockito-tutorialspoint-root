@@ -3,10 +3,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   	<modelVersion>4.0.0</modelVersion>
   	
-	<artifactId>mockito-tutorialspoint-ch4</artifactId>
+	<artifactId>mockito-tutorialspoint-ch12</artifactId>
 	<packaging>jar</packaging>
-	<name>mockito-tutorialspoint-ch4</name>
-	<description>junit integration</description>
+	<name>mockito-tutorialspoint-ch12</name>
+	<description>callbacks</description>
 	
   	<parent>
 	    <groupId>org.cpm.zerowastelife</groupId>
@@ -16,7 +16,7 @@
   	
   	<dependencies>
   	
-  		<!-- junit -->
+    	<!-- junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
